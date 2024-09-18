@@ -4,8 +4,8 @@
 from random import randint
 
 class Character():
-    def __init__(self, level, name, genre, age):   #CHARACTER'S STATUS
-        self._level          = level                                                                           #STATUS DO PERSONAGEM
+    def __init__(self, name, genre, age):   #CHARACTER'S STATUS
+        self._level          = 1                                                                           #STATUS DO PERSONAGEM
         self.name            = name                                                                              
         self.genre           = genre
         self.age             = age
@@ -14,8 +14,9 @@ class Character():
         self._charism        = self.setStatus()
         self._wisdom         = self.setStatus()
         self._intelligence   = self.setStatus()
-        self._hp             = self.setStatus()
-        self._mp             = self.setStatus()
+        self._constitution   = self.setStatus()
+        self._hp             = 0
+        self._mp             = 0
         
     def setStatus(self):
         statusPoints = []
@@ -28,10 +29,7 @@ class Character():
 
     def showInfo(self):
         print(f'Name: {self.name.ljust(20)} | Level: {str(self._level).ljust(20)} | Genre: {self.genre.ljust(20)} | Age: {str(self.age).ljust(20)} | HP: {str(self._hp).ljust(10)} | MP: {str(self._mp).ljust(10)}')
-        print(f'STR: {str(self._strength).ljust(5)} | DEX: {str(self._dexterity).ljust(5)} | CHA: {str(self._charism).ljust(5)} | WIS: {str(self._wisdom).ljust(5)} | INT: {str(self._intelligence).ljust(5)}')
-
-
-
-iury = Character(3, 'Iury', 'Male', 21)
-iury.showInfo()
-
+        print(f'STR: {str(self._strength).ljust(5)} | DEX: {str(self._dexterity).ljust(5)} | CHA: {str(self._charism).ljust(5)} | WIS: {str(self._wisdom).ljust(5)} | INT: {str(self._intelligence).ljust(5)} | CON: {str(self._constitution).ljust(5)}')
+        
+    def levelUp(self):
+        self._level += 1

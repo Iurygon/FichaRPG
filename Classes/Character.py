@@ -4,9 +4,9 @@
 from random import randint
 
 class Character():
-    #CHARACTER'S STATUS
-    #STATUS DO PERSONAGEM
     def __init__(self, name, genre, age):   
+        #CHARACTER'S STATUS
+        #STATUS DO PERSONAGEM
         self._level          = 1                                                                           
         self.name            = name                                                                              
         self.genre           = genre
@@ -19,7 +19,13 @@ class Character():
         self._constitution   = self.setStatus()
         self._hp             = 0
         self._proficiency    = 2
+        #CHARACTER'S ITEMS
+        #ITENS DO PERSONAGEM
         self._inventory      = []
+        #ACTION AND BONUS ACTION
+        #AÇÃO E AÇÃO BÔNUS
+        self._action         = 1
+        self._bonusAction    = 1
         
     def setStatus(self):
         statusPoints = []
@@ -53,3 +59,19 @@ class Character():
     #ADICIONA ITEM NO INVENTÁRIO
     def getItem(self, item):
         self._inventory.append(item)
+
+    #ATTACKIN ACTION
+    #AÇÃO DE ATAQUE
+    def attack(self, armourClass):
+        if self._action >= 1:
+            if self._inventory[0]:
+                pass
+            else:
+                attack = randint(1,20) + self._proficiency
+                if attack > armourClass:
+                    damage = 1 + round(self._strength/2)
+                    return f'The damage was {damage}'
+                else:
+                    return 'Attack missed!'
+        else:
+            return 'Your character has no actions left on this turn'

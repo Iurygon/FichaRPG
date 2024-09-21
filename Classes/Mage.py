@@ -11,7 +11,7 @@ class Mage(Character):
 
     def levelUp(self):
         super().levelUp()
-        self._hp += randint(1, 6)
+        self._hp += randint(1, 6) + round(self._constitution/2)
         if self._level == 1:
             self._spellslots = {'Tricks': 3,
                                 'Level1:': 2}

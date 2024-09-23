@@ -19,6 +19,7 @@ class Character():
         self._constitution   = self.setStatus()
         self._hp             = 0
         self._proficiency    = 2
+        self._armourClass    = 10 + round(self._dexterity/2)
         #CHARACTER'S ITEMS
         #ITENS DO PERSONAGEM
         self._inventory      = []

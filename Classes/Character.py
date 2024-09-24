@@ -4,10 +4,11 @@
 from random import randint
 
 class Character():
-    def __init__(self, name, genre, age):   
+    def __init__(self, name, genre, age, hitdice):   
         #CHARACTER'S STATUS
         #STATUS DO PERSONAGEM
-        self._level          = 1                                                                           
+        self._level          = 1
+        self._hitdice        = hitdice                                                                           
         self.name            = name                                                                              
         self.genre           = genre
         self.age             = age
@@ -17,7 +18,7 @@ class Character():
         self._wisdom         = self.setStatus()
         self._intelligence   = self.setStatus()
         self._constitution   = self.setStatus()
-        self._hp             = 0
+        self._hp             = randint(1, self._hitdice) + round(self._constitution/2)
         self._proficiency    = 2
         self._armourClass    = 10 + round(self._dexterity/2)
         #CHARACTER'S ITEMS
@@ -45,6 +46,7 @@ class Character():
     #MÉTODO USADO PARA EVOLUIR O PERSONAGEM
     def levelUp(self):
         self._level += 1
+        self._hp += randint(1, self._hitdice) + round(self._constitution/2)
         if self._level in [1,2,3,4]:
             self._proficiency = 2
         elif self._level in [5,6,7,8]:

@@ -1,6 +1,15 @@
-nome = 'Iury'
-level = 20
-idade = 21
+from Mage import Mage
 
-print(f'Nome: {nome.ljust(20)}')
+iury = Mage('Iury', 'Male', 21, 6)
 
+iury.setStatus()
+iury.showInfo()
+
+iury.levelUp()
+iury.levelUp()
+iury.levelUp()
+iury.levelUp()
+iury.levelUp()
+iury.levelUp()
+
+iury.showInfo()
